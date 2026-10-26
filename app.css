@@ -1,0 +1,31 @@
+.bc-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 14px; align-items: start; }
+.bc-side { position: sticky; top: 76px; }
+.card h2 small { font-weight: 500; }
+.bc-p { margin: 0; }
+.bc-logo-row { display: flex; gap: 14px; align-items: center; }
+.bc-logo { width: 132px; height: 84px; padding: 8px; flex: none; }
+.bc-logo img { max-width: 100%; max-height: 66px; object-fit: contain; }
+.bc-logo #logoHint { display: grid; place-items: center; gap: 4px; font-size: 12.5px; }
+.bc-logo svg.i { width: 22px; height: 22px; }
+.bc-stage { display: grid; gap: 14px; padding: 18px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--line); }
+.bc-stage figure { margin: 0; display: grid; gap: 6px; justify-items: center; }
+.bc-stage canvas { width: 100%; max-width: 420px; height: auto; border-radius: 6px; box-shadow: 0 18px 40px -18px rgba(0, 0, 0, .6), 0 0 0 1px rgba(0, 0, 0, .06); }
+.bc-stage figcaption { font-size: 12px; color: var(--text-3); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.bc-themes { display: flex; gap: 8px; flex-wrap: wrap; }
+.bc-sw { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, var(--a) 50%, var(--p) 50%); border: 2px solid var(--line-strong); transition: transform 120ms; }
+.bc-sw:hover { transform: scale(1.08); }
+.bc-sw[aria-pressed="true"] { box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--accent); }
+.bc-color { grid-auto-flow: row; }
+.bc-qrfront { align-self: end; padding-bottom: 10px; }
+@media (max-width: 900px) { .bc-grid { grid-template-columns: minmax(0, 1fr); } .bc-side { position: static; } }
+
+#sheet { display: none; }
+.bc-page { position: relative; overflow: hidden; background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.bc-page img { position: absolute; display: block; }
+.bc-page .bc-marks { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+@media print {
+  html, body { margin: 0 !important; padding: 0 !important; background: #fff !important; min-height: 0 !important; display: block !important; }
+  #sheet { display: block; }
+  #sheet .bc-page { break-after: page; page-break-after: always; }
+  #sheet .bc-page:last-child { break-after: auto; page-break-after: auto; }
+}

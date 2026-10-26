@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Business Card Maker — Free Printable Business Cards with QR vCard | S3eidat Tools</title>
+<meta name="description" content="Design a business card in your browser: 85 × 55 mm or 3.5 × 2 in, front and back, your logo, colours, a QR code that saves your contact (vCard), an Arabic side. Print 10 per A4 sheet with crop marks or export 300 DPI PNG. Free and private.">
+<meta property="og:title" content="Business Card Maker — print-ready cards with a QR vCard">
+<meta property="og:description" content="Front and back, logo, colours, QR vCard, Arabic side. Print 10 per sheet with crop marks or export 300 DPI PNG. Runs 100% in your browser.">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="app.css">
+<script src="kit/kit.js"></script>
+<!--s3:seo-->
+<link rel="canonical" href="https://s3eidat.github.io/business-card/">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0d0f12">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="S3eidat Tools">
+<meta property="og:url" content="https://s3eidat.github.io/business-card/">
+<meta property="og:image" content="https://s3eidat.github.io/business-card/screenshot.png">
+<meta property="og:image:width" content="1280"><meta property="og:image:height" content="800">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Business Card — Design and print business cards">
+<meta name="twitter:description" content="Design and print business cards. Free, private and runs 100% in your browser: no sign-up, no uploads.">
+<meta name="twitter:image" content="https://s3eidat.github.io/business-card/screenshot.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Business Card", "url": "https://s3eidat.github.io/business-card/", "description": "Design and print business cards. Free, private and runs 100% in your browser: no sign-up, no uploads.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "image": "https://s3eidat.github.io/business-card/screenshot.png", "author": {"@type": "Person", "name": "s3eidat", "url": "https://github.com/s3eidat"}}</script>
+<!--/s3:seo-->
+</head>
+<body data-tool="business-card">
+<main class="s3-main no-print">
+  <section class="s3-hero">
+    <h1>Business Card</h1>
+    <p>Design a print-ready business card: front and back, your logo, your colours, a QR code that saves your contact, and an Arabic side if you want one. Print a sheet with crop marks or export 300 DPI PNGs. Nothing is uploaded.</p>
+  </section>
+
+  <div class="bc-grid">
+    <div class="stack bc-editor">
+      <section class="card stack">
+        <h2>Details</h2>
+        <div class="grid-2">
+          <label class="field">Name<input class="input" id="name" dir="auto" maxlength="60" placeholder="Your name"></label>
+          <label class="field">Job title<input class="input" id="title" dir="auto" maxlength="60" placeholder="Designer"></label>
+          <label class="field">Company<input class="input" id="company" dir="auto" maxlength="60" placeholder="Company"></label>
+          <label class="field">Phone<input class="input" id="phone" type="tel" dir="ltr" maxlength="40" placeholder="+962 7 9000 0000"></label>
+          <label class="field">Email<input class="input" id="email" type="email" dir="ltr" maxlength="80" placeholder="you@example.com"></label>
+          <label class="field">Website<input class="input" id="website" dir="ltr" maxlength="80" placeholder="example.com"></label>
+        </div>
+        <label class="field">Address<input class="input" id="address" dir="auto" maxlength="90" placeholder="Optional"></label>
+        <label class="field">Tagline (back)<input class="input" id="tagline" dir="auto" maxlength="70" placeholder="Optional, e.g. Eye care for the whole family"></label>
+      </section>
+
+      <section class="card stack">
+        <h2>Logo</h2>
+        <div class="bc-logo-row">
+          <label class="drop bc-logo" id="logoDrop">
+            <input type="file" accept="image/*" hidden>
+            <img id="logoImg" alt="" hidden>
+            <span id="logoHint"><svg class="i"><use href="#i-image"/></svg>Add logo</span>
+          </label>
+          <div class="stack grow">
+            <p class="faint bc-p">PNG or SVG with a transparent background looks best. It stays on your device.</p>
+            <button class="btn small" id="logoClear" type="button" hidden><svg class="i"><use href="#i-trash"/></svg>Remove logo</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card stack">
+        <h2>Arabic side <small>optional</small></h2>
+        <div class="grid-2">
+          <label class="field">الاسم<input class="input" id="nameAr" dir="rtl" lang="ar" maxlength="60" placeholder="الاسم"></label>
+          <label class="field">المسمى الوظيفي<input class="input" id="titleAr" dir="rtl" lang="ar" maxlength="60" placeholder="المسمى"></label>
+          <label class="field">الشركة<input class="input" id="companyAr" dir="rtl" lang="ar" maxlength="60" placeholder="الشركة"></label>
+          <label class="field">العنوان<input class="input" id="addressAr" dir="rtl" lang="ar" maxlength="90" placeholder="اختياري"></label>
+        </div>
+        <p class="faint bc-p">Phone, email and website are shared with the English side. Choose “Arabic version” as the back to use it.</p>
+      </section>
+    </div>
+
+    <div class="stack bc-side">
+      <section class="card stack">
+        <div class="row between">
+          <h2>Preview</h2>
+          <span class="chip" id="status">Waiting</span>
+        </div>
+        <div class="bc-stage">
+          <figure><canvas id="front" role="img" aria-label="Front of the card"></canvas><figcaption>Front</figcaption></figure>
+          <figure id="backFig"><canvas id="back" role="img" aria-label="Back of the card"></canvas><figcaption>Back</figcaption></figure>
+        </div>
+        <div class="field"><span>Template</span>
+          <div class="seg" id="tpl" role="group" aria-label="Template">
+            <button aria-pressed="true" data-v="classic">Classic</button>
+            <button aria-pressed="false" data-v="band">Band</button>
+            <button aria-pressed="false" data-v="centered">Centered</button>
+            <button aria-pressed="false" data-v="minimal">Minimal</button>
+          </div>
+        </div>
+        <div class="grid-2">
+          <label class="field">Back side
+            <select class="select" id="backMode">
+              <option value="logo">Logo on colour</option>
+              <option value="qr">QR code (save contact)</option>
+              <option value="arabic">Arabic version</option>
+              <option value="none">None (one-sided)</option>
+            </select>
+          </label>
+          <label class="field">Size
+            <select class="select" id="size">
+              <option value="eu">85 × 55 mm (standard)</option>
+              <option value="us">3.5 × 2 in (US)</option>
+            </select>
+          </label>
+        </div>
+        <div class="row">
+          <span class="faint">Colours</span>
+          <div class="bc-themes" id="themes" role="group" aria-label="Colour presets"></div>
+        </div>
+        <div class="row">
+          <label class="field bc-color">Accent<input type="color" id="accent"></label>
+          <label class="field bc-color">Card<input type="color" id="paper"></label>
+          <label class="field bc-color">Text<input type="color" id="ink"></label>
+          <label class="check bc-qrfront"><input type="checkbox" id="qrFront"> QR on the front</label>
+        </div>
+      </section>
+
+      <section class="card stack">
+        <h2>Export</h2>
+        <div class="row">
+          <button class="btn primary grow" id="pngFront"><svg class="i"><use href="#i-download"/></svg>Front PNG</button>
+          <button class="btn grow" id="pngBack"><svg class="i"><use href="#i-download"/></svg>Back PNG</button>
+          <button class="btn grow" id="vcf"><svg class="i"><use href="#i-download"/></svg>.vcf contact</button>
+        </div>
+        <p class="faint bc-p" id="pxInfo"></p>
+        <div class="grid-2">
+          <label class="field">Print sheet
+            <select class="select" id="sheetPaper"><option value="A4">A4</option><option value="Letter">Letter</option></select>
+          </label>
+          <label class="field">Spacing
+            <select class="select" id="gap"><option value="0">Touching (shared cut lines)</option><option value="4">4 mm gap</option></select>
+          </label>
+        </div>
+        <div class="seg" id="printWhat" role="group" aria-label="What to print">
+          <button aria-pressed="true" data-v="front">Fronts</button>
+          <button aria-pressed="false" data-v="back">Backs</button>
+          <button aria-pressed="false" data-v="both">Fronts + backs</button>
+        </div>
+        <button class="btn primary" id="print"><svg class="i"><use href="#i-file"/></svg>Print sheet</button>
+        <p class="faint bc-p" id="sheetInfo"></p>
+      </section>
+    </div>
+  </div>
+</main>
+<div id="sheet" aria-hidden="true"></div>
+<script src="lib/qrcode.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
